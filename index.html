@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivos Clasificados</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="js/app.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Héroes y Villanos</h1>
+        <form id="search-form" class="search-form">
+            <input type="text" id="search-input" placeholder="Buscar personaje (ej. Batman)..." required>
+            <button type="submit">Buscar</button>
+        </form>
+    </header>
+
+    <main class="main-content">
+        <section id="results-section" class="results-grid" aria-label="Resultados de búsqueda">
+            </section>
+
+        <dialog id="hero-modal" class="hero-modal">
+            <article id="modal-content" class="modal-content">
+                </article>
+            <button id="close-modal" class="close-btn">Cerrar Archivo</button>
+        </dialog>
+    </main>
+
+    <footer class="footer">
+        <p><small>Datos clasificados proporcionados por Superhero API.</small></p>
+    </footer>
+</body>
+</html>

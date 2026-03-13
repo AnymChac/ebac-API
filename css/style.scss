@@ -1,0 +1,269 @@
+/**
+ * Definir variables de diseño para mantener la consistencia
+ */
+$color-fondo-oscuro: #121212;
+$color-tarjeta: #1e1e1e;
+$color-primario: #ffffff;
+$color-acento: #0f71f1; // Color azul para resaltar
+$color-texto-secundario: #b3b3b3;
+$sombra-tarjeta: 0 8px 20px rgba(0, 0, 0, 0.5);
+$ancho-tarjeta: 280px;
+
+
+/**
+ * Resetear los estilos globales del navegador
+ */
+* {
+    margin: 0;  
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/**
+ * Configurar la estructura base del cuerpo del documento
+ * Utilizar Flexbox para garantizar que el footer siempre permanezca en la parte inferior
+ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: $color-fondo-oscuro;
+    color: $color-primario;
+    min-height: 100vh; // Ocupar el 100% de la altura de la ventana
+    display: flex;
+    flex-direction: column;
+}
+
+/**
+ * Estilizar el encabezado y el área de búsqueda
+ */
+header {
+    background-color: #2c3e50;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-bottom: 2px solid $color-acento;
+
+    h1 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 2rem;
+    }
+}
+
+/**
+ * Configurar el formulario de búsqueda
+ */
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+
+    input {
+        flex: 1;
+        padding: 12px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #333;
+        color: white;
+        font-size: 1rem;
+
+        &:focus {
+            outline: 2px solid $color-acento;
+        }
+    }
+
+    button {
+        padding: 12px 25px;
+        background-color: $color-acento;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.3s;
+
+        &:hover {
+            background-color: darken($color-acento, 10%);
+            transform: scale(1.05);
+        }
+    }
+}
+
+/**
+ * Definir el contenedor principal de resultados
+ * 'flex: 1' permite que esta sección crezca y empuje al footer hacia abajo
+ */
+main {
+    flex: 1; 
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/**
+ * Configurar la cuadrícula de tarjetas mediante CSS Grid
+ */
+.results-grid {
+    display: grid;
+    /**
+     * Utilizar 'auto-fit' en lugar de 'auto-fill'
+     * 'auto-fit' obliga a las columnas a expandirse y ocupar todo el espacio disponible
+     */
+    grid-template-columns: repeat(auto-fit, minmax($ancho-tarjeta, 1fr));
+    
+    gap: 25px;
+    padding: 40px;
+    
+    /**
+     * Asegurar que las tarjetas se mantengan centradas si el ancho total no se completa
+     */
+    justify-content: center;
+    justify-items: center;
+}
+
+/**
+ * Estilizar las tarjetas individuales de personajes
+ */
+.hero-card {
+    background-color: $color-tarjeta;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: $sombra-tarjeta;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px rgba(15, 154, 241, 0.2);
+    }
+
+    img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover; // Ajustar la imagen sin deformarla
+        display: block;
+        background-color: #222; // Mostrar fondo mientras carga
+    }
+
+    .card-body {
+        padding: 20px;
+        text-align: center;
+
+        h2 {
+            color: $color-acento;
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+
+        p {
+            color: $color-texto-secundario;
+            font-size: 0.95rem;
+        }
+    }
+}
+
+/**
+ * Estilizar el pie de página
+ */
+footer {
+    background-color: #0a0a0a;
+    color: $color-texto-secundario;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.85rem;
+    border-top: 1px solid #333;
+    width: 100%;
+    
+    /**
+     * Asegurar que no existan márgenes que generen líneas o espacios negros extra
+     */
+    margin-top: auto;
+}
+
+/**
+ * Configurar la ventana modal para detalles adicionales
+ */
+.hero-modal {
+    margin: auto;
+    background-color: $color-tarjeta;
+    color: white;
+    border: 2px solid $color-acento;
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 90%;
+    width: 500px;
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; // Centrar todo el contenido horizontalmente
+
+        h2 {
+            color: $color-acento;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        img {
+            /**
+             * Definir un ancho total y una altura máxima razonable
+             * Esto evita que la imagen empuje el texto fuera de la pantalla
+             */
+            width: 100%;
+            max-height: 400px; 
+            
+            /**
+             * Ajustar la imagen al contenedor sin deformarla
+             * Recortar los bordes sobrantes para mantener la proporción
+             */
+            object-fit: cover; 
+            
+            /**
+             * Priorizar la parte superior de la imagen (la cara) en caso de recorte
+             */
+            object-position: top;
+            
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 1.5rem;
+            background: #252525;
+            padding: 1rem;
+            border-radius: 8px;
+
+            span {
+                color: $color-acento;
+                font-weight: bold;
+            }
+        }
+    }
+    #close-modal {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        background: transparent;
+        color: white;
+        border: 1px solid $color-acento;
+        cursor: pointer;
+        border-radius: 5px;
+
+        &:hover {
+            background: $color-acento;
+            color: black;
+        }
+    }
+}
