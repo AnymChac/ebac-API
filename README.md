@@ -48,5 +48,12 @@ Para garantizar la estabilidad del proyecto, se incluyeron pruebas con **Jest** 
 - Acceso a datos detallados como nombre real, editora (Marvel/DC) y características físicas.
 
 ## 🤝 Conectemos
-- [LinkedIn](https://www.linkedin.com/in/carlos-ariel-espinosa-arroyo-999753260)
-- [Email](carlos.espinosaarroyo@gmail.com)
+
+<p align="left">
+  <a href="https://www.linkedin.com/in/carlos-ariel-espinosa-arroyo-999753260" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="mailto:carlos.espinosaarroyo@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
+  </a>
+</p>
