@@ -94,7 +94,7 @@ const renderModal = (stats, bio, img) => {
     modalContent.innerHTML = `
         <div class="modal-header">
             <h2>${bio.name}</h2>
-            <img src="${img.url}" alt="${bio.name}" onerror="this.src='img/silueta.png'; this.onerror=null;">
+            <img src="${img.url}" alt="Fotografía de ${bio.name}" onerror="this.src='img/silueta.png'; this.onerror=null;">
         </div>
         
         <p><strong>Identidad Secreta:</strong> ${bio['full-name'] || 'Desconocida'}</p>
