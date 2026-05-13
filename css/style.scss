@@ -267,3 +267,79 @@ footer {
         }
     }
 }
+
+/* Navegación */
+.main-nav {
+    margin: 20px 0;
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 20px;
+        padding: 0;
+
+        a {
+            color: #ffcc00; // Un amarillo tipo alerta
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            &:hover {
+                text-decoration: underline;
+            }
+            &.active {
+                border-bottom: 2px solid #ffcc00;
+                padding-bottom: 5px;
+            }
+        }
+    }
+}
+
+/* Formulario de Contacto */
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    h2 {
+        text-align: center;
+        color: #fff;
+    }
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        label {
+            margin-bottom: 5px;
+            color: #ccc;
+        }
+        input, textarea {
+            padding: 10px;
+            background: #222;
+            border: 1px solid #555;
+            color: #fff;
+            border-radius: 4px;
+        }
+    }
+
+    button {
+        padding: 12px;
+        background: #ffcc00;
+        color: #000;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+        &:hover {
+            background: #e6b800;
+        }
+    }
+}

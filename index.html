@@ -11,11 +11,18 @@
 <body>
     <header class="header">
         <h1>Héroes y Villanos</h1>
-        <form id="search-form" class="search-form">
-            <input type="text" id="search-input" placeholder="Buscar personaje (ej. Batman)..." required>
-            <button type="submit">Buscar</button>
-        </form>
-    </header>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="formulario.html">Contacto</a></li>
+                </ul>
+            </nav>
+    <form id="search-form" class="search-form">
+        <label for="search-input" class="visually-hidden" style="display:none;">Buscar personaje:</label>
+        <input type="text" id="search-input" placeholder="Buscar personaje (ej. Batman)..." required>
+        <button type="submit" aria-label="Ejecutar búsqueda">Buscar</button>
+    </form>
+</header>
 
     <main class="main-content">
         <section id="results-section" class="results-grid" aria-label="Resultados de búsqueda">
@@ -29,7 +36,7 @@
     </main>
 
     <footer class="footer">
-        <p><small>Datos clasificados proporcionados por Superhero API.</small></p>
+       <p><small>Datos proporcionados por <span lang="en">Superhero API</span>.</small></p>
     </footer>
 </body>
 </html>
